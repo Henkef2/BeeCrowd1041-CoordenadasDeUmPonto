@@ -1,0 +1,47 @@
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.Locale;
+import java.text.DecimalFormat; 
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        // Garante o uso do ponto (.) como separador decimal
+        Locale.setDefault(Locale.US);
+        Scanner input = new Scanner(System.in);
+
+        double a, b;
+		a = input.nextDouble();
+		b = input.nextDouble();
+
+
+        // 1. Origem: Ambos precisam ser zero
+if (a == 0.0 && b == 0.0) {
+    System.out.print("Origem\n");
+} 
+// 2. Eixos: Se um deles for zero, está sobre o eixo do outro
+else if (a == 0.0) {
+    System.out.print("Eixo Y\n");
+} 
+else if (b == 0.0) {
+    System.out.print("Eixo X\n");
+} 
+// 3. Quadrante 1: Ambos positivos (substitui o seu teste de 0.1)
+else if (a > 0.0 && b > 0.0) {
+    System.out.print("Q1\n");
+} 
+// 4. Quadrante 2: X negativo e Y positivo
+else if (a < 0.0 && b > 0.0) {
+    System.out.print("Q2\n");
+} 
+// 5. Quadrante 3: Ambos negativos
+else if (a < 0.0 && b < 0.0) {
+    System.out.print("Q3\n");
+} 
+// 6. Quadrante 4: X positivo e Y negativo (substitui o seu teste de 0.2)
+else {
+    System.out.print("Q4\n");
+}
+        input.close();
+    }
+
+}
